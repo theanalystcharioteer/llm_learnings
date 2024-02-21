@@ -69,3 +69,6 @@ chain.invoke({"query": joke_query})
 # {'setup': "Why don't scientists trust atoms?",
 #  'punchline': 'Because they make up everything!'}
 
+# Refer to this as well 
+https://www.gettingstarted.ai/how-to-langchain-output-parsers-convert-text-to-objects/
+
