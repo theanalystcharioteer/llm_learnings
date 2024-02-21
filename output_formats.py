@@ -1,3 +1,8 @@
+# ================================================= 
+# How do we get back responses from LLMs in strictly json format
+# OpenAI chat
+# ================================================= 
+
 from openai import OpenAI
 client = OpenAI()
 
@@ -11,3 +16,15 @@ response = client.chat.completions.create(
 )
 print(response.choices[0].message.content)
 
+# ================================================= 
+# https://python.langchain.com/docs/modules/model_io/output_parsers/quick_start
+# using langchain
+# ================================================= 
+
+from langchain.output_parsers.json import SimpleJsonOutputParser
+
+json_prompt = PromptTemplate.from_template(
+    "Return a JSON object with an `answer` key that answers the following question: {question}"
+)
+json_parser = SimpleJsonOutputParser()
+json_chain = json_prompt | model | json_parser
