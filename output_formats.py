@@ -28,3 +28,5 @@ json_prompt = PromptTemplate.from_template(
 )
 json_parser = SimpleJsonOutputParser()
 json_chain = json_prompt | model | json_parser
+
+list(json_chain.stream({"question": "Who invented the microscope?"}))
